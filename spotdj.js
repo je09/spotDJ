@@ -1,7 +1,3 @@
-// NAME: spotDJ
-// AUTHOR: je09
-// DESCRIPTION: Provide additional data for DJs
-
 var spotdj = (() => {
   // src/misc.tsx
   var keyMap = /* @__PURE__ */ new Map([
@@ -116,7 +112,7 @@ var spotdj = (() => {
     trackInfoContainer = document.createElement("div");
     trackInfoContainer.className = "main-trackInfo-spotdj ellipsis-one-line main-type-finale";
     trackInfoContainer.style.color = "var(--spice-extratext)";
-    var element = document.createElement("a");
+    var element = document.createElement("p");
     element.innerHTML = info.key + info.camelot + "/" + info.tempo;
     trackInfoContainer.append(element);
   }
@@ -161,6 +157,24 @@ var spotdj = (() => {
       return;
     }
     const tracks = tracklist.getElementsByClassName("main-trackList-trackListRow");
+    const tracklistHeader = document.querySelector(".main-trackList-trackListHeaderRow");
+    if (tracklistHeader) {
+      let lastColumn = tracklistHeader.querySelector(".main-trackList-rowSectionEnd");
+      let colIndexInt = parseInt(lastColumn.getAttribute("aria-colindex"));
+      switch (colIndexInt) {
+        case 4:
+          tracklistHeader.style["grid-template-columns"] = fiveColumnGridCss;
+          break;
+        case 5:
+          tracklistHeader.style["grid-template-columns"] = sixColumnGridCss;
+          break;
+        case 6:
+          tracklistHeader.style["grid-template-columns"] = sevenColumnGridCss;
+          break;
+        default:
+          break;
+      }
+    }
     for (const track of tracks) {
       const isMarked = track.querySelector(".main-playlisttrackInfo-spotdj") != null;
       if (isMarked) {
@@ -169,6 +183,7 @@ var spotdj = (() => {
       const trackID = getTracklistTrackUri(track).split(":")[2];
       const features = await getTrackFeatures(trackID);
       addTracklistInfoContainer(features, track);
+      const heart = track.getElementsByClassName("main-addButton-button")[0];
     }
   }
   function addTracklistInfoContainer(info, list) {
@@ -178,11 +193,21 @@ var spotdj = (() => {
     var container = document.createElement("div");
     container.setAttribute("aria-colindex", colIndexInt.toString());
     container.style.color = "var(--text-subdued,#6a6a6a)";
+    container.style.fontSize = "0.875rem";
+    container.style.textAlign = "left";
     container.role = "gridcell";
     container.style.display = "flex";
     container.classList.add("main-trackList-rowSectionVariable");
     container.classList.add("main-playlisttrackInfo-spotdj");
-    container.innerText = info.key + info.camelot + "/" + info.tempo;
+    var keyElement = document.createElement("p");
+    var tempoElement = document.createElement("p");
+    keyElement.innerHTML = "<strong>" + info.key + "</strong>" + info.camelot;
+    keyElement.style.marginBottom = "0.175rem";
+    tempoElement.innerHTML = "<strong>" + info.tempo + "</strong> BPM";
+    tempoElement.style.fontSize = "0.820rem";
+    container.style.display = "block";
+    container.appendChild(keyElement);
+    container.appendChild(tempoElement);
     if (list.querySelector(".main-playlisttrackInfo-spotdj") != null) {
       return;
     }
