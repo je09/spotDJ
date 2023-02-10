@@ -2,7 +2,7 @@
 
 ## Screenshots
 
-![](./cover.png)
+![](./images/screen.png)
 
 ## More
 

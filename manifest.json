@@ -1,7 +1,7 @@
 {
   "name": "SpotDJ",
-  "description": "Provides additional data (track key and bpm) for DJs.",
-  "preview": "cover.gif",
+  "description": "Provides additional info (Key/Tempo) for your tracks. Has built in pitch change calculator.",
+  "preview": "logo.png",
   "main": "spotdj.js",
   "readme": "README.md",
   "authors": [
