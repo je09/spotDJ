@@ -1,3 +1,8 @@
+// NAME: spotDJ
+// AUTHOR: je09
+// VERSION: 9.8.1
+// DESCRIPTION: Provides additional info (Key/Tempo) for your tracks. Has built in pitch change calculator.
+
 var spotdj = (() => {
   // src/misc.tsx
   var keyMap = /* @__PURE__ */ new Map([
