@@ -14,7 +14,7 @@ button to do so in Settings.
 ![](./images/settings.png)
 
 ## Credits
-This extension uses some parts of [Spotify Star Ratings](https://github.com/duffey/spotify-star-ratings) and [Spicetify Genre](https://github.com/Shinyhero36/Spicetify-Genre).
+This extension uses some parts of [Spotify Star Ratings](https://github.com/duffey/spotify-star-ratings), [Spicetify Genre](https://github.com/Shinyhero36/Spicetify-Genre) and [Spicetify DJ info](https://github.com/L3-N0X/spicetify-dj-info).
 
 **Author :** [je09](https://github.com/je09)
 
