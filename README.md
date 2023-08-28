@@ -1,3 +1,5 @@
+# Unmaintained, it doesn't work with the new Spotify version, use [spicetify-dj-info](https://github.com/L3-N0X/spicetify-dj-info) instead. Tempo calculator will be moved to a standalone Spicetify Extension soon enough, after that, this repo will be archived.
+
 # SpotDJ
 
 ## Screenshots
